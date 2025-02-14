@@ -1,4 +1,3 @@
-// components/Form.js
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,7 +11,6 @@ export default function Form({ onSuccess }) {
 
   const [errors, setErrors] = useState({});
 
-  // Load data from localStorage on mount
   useEffect(() => {
     const savedData = localStorage.getItem("ticketFormData");
     if (savedData) {
@@ -20,7 +18,6 @@ export default function Form({ onSuccess }) {
     }
   }, []);
 
-  // Save data to localStorage whenever formData changes
   useEffect(() => {
     localStorage.setItem("ticketFormData", JSON.stringify(formData));
   }, [formData]);
@@ -30,7 +27,6 @@ export default function Form({ onSuccess }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Basic validation
   const validateForm = () => {
     const newErrors = {};
 
@@ -38,7 +34,6 @@ export default function Form({ onSuccess }) {
       newErrors.fullName = "Full Name is required.";
     }
 
-    // Basic email regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       newErrors.email = "Email is required.";
@@ -46,7 +41,6 @@ export default function Form({ onSuccess }) {
       newErrors.email = "Please enter a valid email address.";
     }
 
-    // Avatar URL validation (must start with http or https)
     if (!formData.avatarUrl.trim()) {
       newErrors.avatarUrl = "Avatar URL is required.";
     } else if (
@@ -65,7 +59,6 @@ export default function Form({ onSuccess }) {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      // No errors, pass data back
       onSuccess(formData);
     }
   };
@@ -74,12 +67,8 @@ export default function Form({ onSuccess }) {
     <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-[#132937] p-6 rounded mt-8">
       <h2 className="text-xl font-bold mb-4 text-teal-400">Generate Your Ticket</h2>
 
-      {/* Full Name */}
       <div className="mb-4">
-        <label
-          htmlFor="fullName"
-          className="block text-sm font-medium text-gray-200 mb-1"
-        >
+        <label htmlFor="fullName" className="block text-sm font-medium text-gray-200 mb-1">
           Full Name
         </label>
         <input
@@ -89,11 +78,7 @@ export default function Form({ onSuccess }) {
           value={formData.fullName}
           onChange={handleChange}
           className={`w-full p-2 rounded focus:outline-none
-            ${
-              errors.fullName
-                ? "border border-red-500"
-                : "border border-gray-600 bg-[#0D212F]"
-            }`}
+            ${errors.fullName ? "border border-red-500" : "border border-gray-600 bg-[#0D212F]"}`}
           aria-invalid={errors.fullName ? "true" : "false"}
           aria-describedby={errors.fullName ? "fullName-error" : undefined}
         />
@@ -104,12 +89,8 @@ export default function Form({ onSuccess }) {
         )}
       </div>
 
-      {/* Email */}
       <div className="mb-4">
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-200 mb-1"
-        >
+        <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">
           Email Address
         </label>
         <input
@@ -119,11 +100,7 @@ export default function Form({ onSuccess }) {
           value={formData.email}
           onChange={handleChange}
           className={`w-full p-2 rounded focus:outline-none
-            ${
-              errors.email
-                ? "border border-red-500"
-                : "border border-gray-600 bg-[#0D212F]"
-            }`}
+            ${errors.email ? "border border-red-500" : "border border-gray-600 bg-[#0D212F]"}`}
           aria-invalid={errors.email ? "true" : "false"}
           aria-describedby={errors.email ? "email-error" : undefined}
         />
@@ -134,12 +111,8 @@ export default function Form({ onSuccess }) {
         )}
       </div>
 
-      {/* Avatar URL */}
       <div className="mb-4">
-        <label
-          htmlFor="avatarUrl"
-          className="block text-sm font-medium text-gray-200 mb-1"
-        >
+        <label htmlFor="avatarUrl" className="block text-sm font-medium text-gray-200 mb-1">
           Avatar URL (Cloudinary or any image link)
         </label>
         <input
@@ -149,11 +122,7 @@ export default function Form({ onSuccess }) {
           value={formData.avatarUrl}
           onChange={handleChange}
           className={`w-full p-2 rounded focus:outline-none
-            ${
-              errors.avatarUrl
-                ? "border border-red-500"
-                : "border border-gray-600 bg-[#0D212F]"
-            }`}
+            ${errors.avatarUrl ? "border border-red-500" : "border border-gray-600 bg-[#0D212F]"}`}
           aria-invalid={errors.avatarUrl ? "true" : "false"}
           aria-describedby={errors.avatarUrl ? "avatarUrl-error" : undefined}
         />
@@ -164,7 +133,6 @@ export default function Form({ onSuccess }) {
         )}
       </div>
 
-      {/* Submit */}
       <button
         type="submit"
         className="mt-4 w-full bg-teal-400 text-black font-semibold py-2 rounded

@@ -9,3 +9,9 @@ body {
 }
 
 
+@font-face {
+  font-family: 'Jeju Myeongjo';
+  src: url('./Fonts/JejuMyeongjo-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}

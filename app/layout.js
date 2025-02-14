@@ -1,4 +1,4 @@
-// app/layout.js
+
 import "./globals.css";
 import Link from "next/link";
 
@@ -10,8 +10,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-[#0D212F] text-white min-h-screen">
-        {/* Top Navigation (if you want) */}
+      <body className="bg-[#0D212F] text-white min-h-screen font-JejuMyeongjo">
+        
         <header className="border-b border-gray-700">
           <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div className="text-xl font-bold">tix</div>
@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
 
         <main>{children}</main>
 
-        {/* (Optional) Footer */}
+        
       </body>
     </html>
   );

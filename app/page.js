@@ -1,37 +1,29 @@
-"use client";
+"use client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
 
-  // State for selected ticket type
   const [ticketType, setTicketType] = useState("free");
-  // State for number of tickets
   const [quantity, setQuantity] = useState(1);
 
-  // Handle the Next button
   const handleNext = () => {
-    // Save selection in local storage (so it persists to next step)
     localStorage.setItem(
       "ticketSelection",
       JSON.stringify({ ticketType, quantity })
     );
-    // Navigate to Step 2 (the form page)
     router.push("/form");
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 px-4">
-      {/* Header Row: Title + Step */}
+    <div className="max-w-3xl mx-auto mt-10 px-4 font-JejuMyeongjo">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Ticket Selection</h1>
         <p className="text-gray-300">Step 1/3</p>
       </div>
 
-      {/* Card */}
       <div className="bg-[#132937] rounded-lg p-6">
-        {/* Event Info */}
         <div className="text-center mb-6">
           <h2 className="text-teal-400 text-xl font-bold mb-2">
             Techember Fest &apos;25
@@ -44,13 +36,11 @@ export default function Page() {
           </p>
         </div>
 
-        {/* Ticket Type */}
         <div className="mb-4">
           <label className="block text-gray-200 mb-2 font-medium">
             Select Ticket Type
           </label>
           <div className="grid grid-cols-3 gap-4">
-            {/* Free */}
             <div
               onClick={() => setTicketType("free")}
               className={`cursor-pointer border rounded p-4 text-center transition
@@ -64,7 +54,6 @@ export default function Page() {
               <p className="text-sm text-gray-400">REGULAR ACCESS</p>
             </div>
 
-            {/* Regular */}
             <div
               onClick={() => setTicketType("regular")}
               className={`cursor-pointer border rounded p-4 text-center transition
@@ -82,7 +71,6 @@ export default function Page() {
               </p>
             </div>
 
-            {/* VIP */}
             <div
               onClick={() => setTicketType("vip")}
               className={`cursor-pointer border rounded p-4 text-center transition
@@ -102,7 +90,6 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Number of Tickets */}
         <div className="mb-6">
           <label className="block text-gray-200 mb-2 font-medium">
             Number of Tickets
@@ -120,12 +107,11 @@ export default function Page() {
           </select>
         </div>
 
-        {/* Action Buttons */}
         <div className="flex justify-between">
           <button
             type="button"
             className="border border-gray-500 text-gray-500 px-6 py-2 rounded
-                       hover:bg-gray-500 hover:text-white transition"
+                    hover:bg-gray-500 hover:text-white transition"
           >
             Cancel
           </button>
@@ -133,7 +119,7 @@ export default function Page() {
             type="button"
             onClick={handleNext}
             className="bg-teal-400 text-black px-6 py-2 rounded hover:bg-teal-300
-                       transition"
+                    transition"
           >
             Next
           </button>

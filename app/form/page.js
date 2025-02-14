@@ -6,14 +6,12 @@ import { useRouter } from "next/navigation";
 export default function FormPage() {
   const router = useRouter();
 
-  // Store user data in state
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     avatar: "",
   });
 
-  // If no ticket selection is in localStorage, redirect back to Step 1
   useEffect(() => {
     const savedTicket = JSON.parse(localStorage.getItem("ticketSelection"));
     if (!savedTicket) {
@@ -21,27 +19,21 @@ export default function FormPage() {
     }
   }, [router]);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Save the user details in localStorage
     localStorage.setItem("userDetails", JSON.stringify(userData));
-    // Proceed to Step 3 (Ticket page)
     router.push("/ticket");
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 px-4">
-      {/* Optional: Step indicator */}
+    <div className="max-w-md mx-auto mt-10 px-4 font-JejuMyeongjo">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Personal Details</h1>
         <p className="text-gray-300">Step 2/3</p>
       </div>
 
-      {/* Card Container */}
       <div className="bg-[#132937] rounded-lg p-6">
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Full Name */}
           <div>
             <label
               htmlFor="fullName"
@@ -62,7 +54,6 @@ export default function FormPage() {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label
               htmlFor="email"
@@ -83,7 +74,6 @@ export default function FormPage() {
             />
           </div>
 
-          {/* Avatar URL (Optional) */}
           <div>
             <label
               htmlFor="avatar"
@@ -103,7 +93,6 @@ export default function FormPage() {
             />
           </div>
 
-          {/* Next Button */}
           <button
             type="submit"
             className="bg-teal-400 text-black w-full py-3 rounded

@@ -5,7 +5,7 @@ export default function MyTicketsPage() {
   const [purchasedTickets, setPurchasedTickets] = useState([]);
 
   useEffect(() => {
-    // Load all tickets from localStorage
+    
     const storedTickets = JSON.parse(localStorage.getItem("purchasedTickets"));
     if (storedTickets) {
       setPurchasedTickets(storedTickets);
@@ -22,7 +22,7 @@ export default function MyTicketsPage() {
   }
 
   return (
-    <div className="max-w-lg mx-auto mt-10 px-4">
+    <div className="max-w-lg mx-auto mt-10 px-4 font-JejuMyeongjo">
       <h1 className="text-2xl font-bold mb-6">My Tickets</h1>
 
       {purchasedTickets.map((ticket) => (

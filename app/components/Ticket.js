@@ -1,4 +1,4 @@
-// components/Ticket.js
+
 "use client";
 
 export default function Ticket({ fullName, email, avatarUrl }) {
