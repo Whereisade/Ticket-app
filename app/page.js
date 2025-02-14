@@ -17,54 +17,54 @@ export default function Page() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 px-4 font-JejuMyeongjo">
+    <div className="max-w-[700px] mx-auto mt-10 p-12 border bg-[#041E23] border-[#0E464F] rounded-[40px]">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Ticket Selection</h1>
-        <p className="text-gray-300">Step 1/3</p>
+        <h1 className="text-2xl leading-6 font-[400] text-[32px] font-JejuMyeongjo">Ticket Selection</h1>
+        <p className="text-gray-300 text-[16px] leading-6">Step 1/3</p>
       </div>
 
-      <div className="bg-[#132937] rounded-lg p-6">
-        <div className="text-center mb-6">
-          <h2 className="text-teal-400 text-xl font-bold mb-2">
+      <div className="bg-[#08252B] rounded-[32px] p-6 border border-[#0E464F]">
+        <div className="text-center mb-6 p-6 border border-[#0E464F] ">
+          <h2 className="text-[#FAFAFA] font-road text-xl font-[400] leading-[62px] mb-2 text-[62px]">
             Techember Fest &apos;25
           </h2>
-          <p className="text-gray-300 mb-2">
+          <p className="text-[#FAFAFA] mb-2 text-[16px] font-[400]">
             Join us for an unforgettable experience at [Event Name]! Secure your spot now.
           </p>
-          <p className="text-gray-400 text-sm">
+          <p className="text-[#FAFAFA] text-[16px] font-[400]">
             [Event Location] | March 15, 2025 | 7:00 PM
           </p>
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-200 mb-2 font-medium">
-            Select Ticket Type
+          <label className="block text-[#fafafa] mb-2 font-[400] text-[16px]">
+            Select Ticket Type:
           </label>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 border p-4 bg-[#052228] border-[#07373F] rounded-[24px]">
             <div
               onClick={() => setTicketType("free")}
-              className={`cursor-pointer border rounded p-4 text-center transition
+              className={`cursor-pointer border rounded-[12px] p-3 text-center transition
                 ${
                   ticketType === "free"
-                    ? "border-teal-400 bg-[#0D212F]"
-                    : "border-gray-600 hover:border-teal-400"
+                    ? "border-teal-400 bg-[#12464E]"
+                    : "border-[#197686] hover:border-teal-400"
                 }`}
             >
-              <p className="text-xl font-bold">Free</p>
-              <p className="text-sm text-gray-400">REGULAR ACCESS</p>
+              <p className="text-[24px] font-[600]">Free</p>
+              <p className="text-base text-[#fafafa] font-[400]">REGULAR ACCESS</p>
             </div>
 
             <div
               onClick={() => setTicketType("regular")}
-              className={`cursor-pointer border rounded p-4 text-center transition
+              className={`cursor-pointer border rounded-[12px] p-3 text-center transition
                 ${
                   ticketType === "regular"
-                    ? "border-teal-400 bg-[#0D212F]"
-                    : "border-gray-600 hover:border-teal-400"
+                    ? "border-teal-400 bg-[#12464E]"
+                    : "border-[#197686] hover:border-teal-400"
                 }`}
             >
-              <p className="text-xl font-bold">$150</p>
-              <p className="text-sm text-gray-400">
+              <p className="text-[24px] font-[600]">$150</p>
+              <p className="text-base text-[#fafafa] font-[400]">
                 REGULAR ACCESS
                 <br />
                 20/25
@@ -73,15 +73,15 @@ export default function Page() {
 
             <div
               onClick={() => setTicketType("vip")}
-              className={`cursor-pointer border rounded p-4 text-center transition
+              className={`cursor-pointer border rounded-[12px] p-3 text-center transition
                 ${
                   ticketType === "vip"
-                    ? "border-teal-400 bg-[#0D212F]"
-                    : "border-gray-600 hover:border-teal-400"
+                    ? "border-teal-400 bg-[#12464E]"
+                    : "border-[#197686] hover:border-teal-400"
                 }`}
             >
-              <p className="text-xl font-bold">$150</p>
-              <p className="text-sm text-gray-400">
+              <p className="text-[24px] font-[600]">$150</p>
+              <p className="text-base text-[#fafafa] font-[400]">
                 VIP ACCESS
                 <br />
                 20/25
@@ -91,13 +91,13 @@ export default function Page() {
         </div>
 
         <div className="mb-6">
-          <label className="block text-gray-200 mb-2 font-medium">
+          <label className="block text-[#fafafa] mb-2 font-[400] text-[16px]">
             Number of Tickets
           </label>
           <select
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
-            className="w-full bg-[#0D212F] border border-gray-600 rounded p-2 text-gray-200"
+            className="w-full bg-[#08252B] border border-[#07373F] rounded p-2 text-[#fafafa]"
           >
             {[...Array(10)].map((_, i) => (
               <option key={i} value={i + 1}>
@@ -110,7 +110,7 @@ export default function Page() {
         <div className="flex justify-between">
           <button
             type="button"
-            className="border border-gray-500 text-gray-500 px-6 py-2 rounded
+            className="border border-[#24A0B5] text-[#24A0B5] px-6 py-3 text-[16px] rounded-[8px]
                     hover:bg-gray-500 hover:text-white transition"
           >
             Cancel
@@ -118,7 +118,7 @@ export default function Page() {
           <button
             type="button"
             onClick={handleNext}
-            className="bg-teal-400 text-black px-6 py-2 rounded hover:bg-teal-300
+            className="bg-teal-400 text-black px-6 py-3 rounded-[8px] text-[16px] hover:bg-teal-300
                     transition"
           >
             Next
