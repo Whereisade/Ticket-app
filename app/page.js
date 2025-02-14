@@ -25,7 +25,7 @@ export default function Page() {
 
       <div className="bg-[#08252B] rounded-[32px] p-6 border border-[#0E464F]">
         <div className="text-center mb-6 p-6 border border-[#0E464F] ">
-          <h2 className="text-[#FAFAFA] font-road text-xl font-[400] leading-[62px] mb-2 text-[62px]">
+          <h2 className="text-[#FAFAFA] font-road font-[400] leading-[62px] mb-2 text-[62px]">
             Techember Fest &apos;25
           </h2>
           <p className="text-[#FAFAFA] mb-2 text-[16px] font-[400]">
